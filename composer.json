@@ -1,0 +1,13 @@
+{
+    "name": "natan/atividade-composer",
+    "description": "Atividade de composer na aula do dia 24/09/2018.",
+    "authors": [
+        {
+            "name": "Natan Rocha Batista",
+            "email": "natan.rocha.batista@gmail.com"
+        }
+    ],
+    "require": {
+        "endroid/qr-code": "^3.4"
+    }
+}
