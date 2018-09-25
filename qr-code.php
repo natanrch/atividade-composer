@@ -3,10 +3,30 @@
 require_once 'vendor/autoload.php';
 
 use Endroid\QrCode\QrCode;
+use Respect\Validation\Validator as v;
 
 $nome = $_POST['nome'];
+$email = $_POST['email'];
+$data = $_POST['data-de-nascimento'];
 
-$qrCode = new QrCode($nome);
+$emailValido = v::email()->validate($email);
+$dataValida = v::date('d-m-Y')->validate($data);
 
-header('Content-Type: '.$qrCode->getContentType());
-echo $qrCode->writeString();
+if ($emailValido) {
+	echo 'E-mail válido!';
+} else {
+	echo 'E-mail inválido!';
+}
+
+if ($dataValida) {
+	echo '<br> Data válida';
+} else {
+	echo '<br> Data inválida';
+}
+
+// if  $dataValida ? echo 'Data válida!': echo 'Data inválida';
+
+// $qrCode = new QrCode($nome);
+
+// header('Content-Type: '.$qrCode->getContentType());
+// echo $qrCode->writeString();
